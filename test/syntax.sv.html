@@ -1,12 +1,16 @@
 <body>
 <pre>
-<span class="Statement">module</span> <span class="Identifier">mymodule</span><span class="Special">(</span>
-  <span class="Statement">input</span>  <span class="Statement">wire</span> a<span class="Special">,</span>
-  <span class="Statement">input</span>  <span class="Statement">wire</span> b<span class="Special">,</span>
-  <span class="PreProc">`ifdef</span> <span class="Constant">MACRO</span>
-  <span class="Statement">input</span>  <span class="Statement">wire</span> c<span class="Special">,</span>
-  <span class="PreProc">`endif</span>
-  <span class="Statement">output</span> <span class="Statement">wire</span> y
+<span class="Statement">module</span> <span class="Special">#(</span>
+    <span class="Statement">parameter</span> <span class="Constant">TEST1</span> <span class="Special">=</span> <span class="PreProc">$clog</span><span class="Special">(</span><span class="Constant">0</span><span class="Special">),</span>
+    <span class="Statement">parameter</span> <span class="Constant">TEST2</span> <span class="Special">=</span> <span class="PreProc">$clog</span><span class="Special">(</span><span class="Constant">1</span><span class="Special">),</span>
+    <span class="Statement">parameter</span> <span class="Constant">TEST3</span> <span class="Special">=</span> <span class="PreProc">$clog</span><span class="Special">(</span><span class="Constant">2</span><span class="Special">)</span>
+<span class="Special">)</span> <span class="Identifier">mymodule</span><span class="Special">(</span>
+    <span class="Statement">input</span>  <span class="Statement">wire</span> a<span class="Special">,</span>
+    <span class="Statement">input</span>  <span class="Statement">wire</span> b<span class="Special">,</span>
+    <span class="PreProc">`ifdef</span> <span class="Constant">MACRO</span>
+    <span class="Statement">input</span>  <span class="Statement">wire</span> c<span class="Special">,</span>
+    <span class="PreProc">`endif</span>
+    <span class="Statement">output</span> <span class="Statement">wire</span> y
 <span class="Special">);</span>
 
 <span class="Statement">endmodule</span>
@@ -118,6 +122,7 @@
 <span class="Statement">logic</span>
 <span class="Statement">longint</span>
 <span class="Statement">macromodule</span>
+<span class="Statement">mailbox</span>
 <span class="Statement">matches</span>
 <span class="Statement">medium</span>
 <span class="Statement">modport</span>
@@ -132,7 +137,7 @@
 <span class="Statement">not</span>
 <span class="Statement">notif0</span>
 <span class="Statement">notif1</span>
-<span class="Statement">null</span>
+<span class="Type">null</span>
 <span class="Statement">or</span>
 <span class="Statement">output</span>
 <span class="Statement">package</span>
@@ -176,6 +181,7 @@
 <span class="Statement">s_until</span>
 <span class="Statement">s_until_with</span>
 <span class="Statement">scalared</span>
+<span class="Statement">semaphore</span>
 <span class="Statement">shortint</span>
 <span class="Statement">shortreal</span>
 <span class="Statement">showcancelled</span>
@@ -197,7 +203,7 @@
 <span class="Statement">sync_reject_on</span>
 <span class="Statement">table</span>
 <span class="Statement">tagged</span>
-<span class="Statement">this</span>
+<span class="Type">this</span>
 <span class="Statement">throughout</span>
 <span class="Statement">time</span>
 <span class="Statement">timeprecision</span>
@@ -358,5 +364,9 @@
     y <span class="Special">=</span> d<span class="Special">;</span>
   <span class="Statement">end</span>
 <span class="Statement">end</span>
+
+<span class="Statement">assign</span> a <span class="Special">=</span> <span class="Identifier">myfunc</span><span class="Special">(</span><span class="Type">this</span><span class="Special">);</span>
+
+<span class="Comment">// vi&#0058; set expandtab softtabstop=4 shiftwidth=4:</span>
 </pre>
 </body>

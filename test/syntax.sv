@@ -1,10 +1,14 @@
-module mymodule(
-  input  wire a,
-  input  wire b,
-  `ifdef MACRO
-  input  wire c,
-  `endif
-  output wire y
+module #(
+    parameter TEST1 = $clog(0),
+    parameter TEST2 = $clog(1),
+    parameter TEST3 = $clog(2)
+) mymodule(
+    input  wire a,
+    input  wire b,
+    `ifdef MACRO
+    input  wire c,
+    `endif
+    output wire y
 );
 
 endmodule
@@ -116,6 +120,7 @@ localparam
 logic
 longint
 macromodule
+mailbox
 matches
 medium
 modport
@@ -174,6 +179,7 @@ s_nexttime
 s_until
 s_until_with
 scalared
+semaphore
 shortint
 shortreal
 showcancelled
@@ -356,3 +362,7 @@ always @(*) begin : label
     y = d;
   end
 end
+
+assign a = myfunc(this);
+
+// vi: set expandtab softtabstop=4 shiftwidth=4:

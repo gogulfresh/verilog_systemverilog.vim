@@ -54,6 +54,7 @@ syn keyword verilogStatement   supply0 supply1 table time tran
 syn keyword verilogStatement   tranif0 tranif1 tri tri0 tri1 triand
 syn keyword verilogStatement   trior trireg unsigned use vectored wait
 syn keyword verilogStatement   wand weak0 weak1 wire wor xnor xor
+syn keyword verilogStatement   semaphore mailbox
 
 syn keyword verilogStatement   always_comb always_ff always_latch
 syn keyword verilogStatement   checker endchecker
@@ -78,7 +79,7 @@ syn keyword verilogStatement   program endprogram
 syn keyword verilogStatement   bins binsof illegal_bins ignore_bins
 syn keyword verilogStatement   alias matches solve static assert
 syn keyword verilogStatement   assume before expect bind
-syn keyword verilogStatement   extends null tagged extern this
+syn keyword verilogStatement   extends tagged extern
 syn keyword verilogStatement   first_match throughout timeprecision
 syn keyword verilogStatement   timeunit priority type union
 syn keyword verilogStatement   uwire var cross ref wait_order intersect
@@ -135,7 +136,7 @@ else
     syn match   verilogLabel   "\(\<begin\>\s*:\s*\)\@<=\<\k\+\>"
 endif
 
-syn keyword verilogObject      super
+syn keyword verilogObject      super null this
 syn match   verilogObject      "\<\w\+\ze\(::\|\.\)" contains=verilogNumber
 
 
@@ -275,7 +276,7 @@ if index(s:verilog_syntax_fold, "block_nested") >= 0 || index(s:verilog_syntax_f
         \ keepend extend
         \ contains=verilogBlock,verilogBlockNamed,verilogBlockEnd
 elseif index(s:verilog_syntax_fold, "block") >= 0 || index(s:verilog_syntax_fold, "all") >= 0
-    syn region  verilogFold
+    syn region verilogBlock
         \ matchgroup=verilogStatement
         \ start="\<begin\>"
         \ end="\<end\>"
